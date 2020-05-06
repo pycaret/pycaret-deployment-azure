@@ -36,6 +36,5 @@ def predict_api():
     output = prediction.Label[0]
     return jsonify(output)
 
-
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
