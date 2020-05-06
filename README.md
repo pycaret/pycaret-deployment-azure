@@ -1,1 +1,1 @@
-# Deployment Example on Azure
+# Deployment on Microsoft Azure using docker container 
