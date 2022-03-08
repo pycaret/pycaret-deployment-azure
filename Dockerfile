@@ -11,6 +11,11 @@ ADD . /app
 # Install dependencies
 RUN pip install -r requirements.txt
 
+# Resolve issue "ImportError: cannot import name 'soft_unicode' from 'markupsafe'"
+# https://github.com/aws/aws-sam-cli/issues/3661#issuecomment-1049916359
+RUN pip uninstall -y markupsafe
+RUN pip install markupsafe==2.0.1
+
 # Expose port 
 EXPOSE 5000
 
