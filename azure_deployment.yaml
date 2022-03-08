@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-insurance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-insurance
+  template:
+    metadata:
+      labels:
+        app: azure-insurance
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: azure-insurance
+        image: pycaretacr.azurecr.io/pycaret-ins-5000:v1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512Mi
+          limits:
+            cpu: 1250m
+            memory: 512Mi
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: azure-reg-cred
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-insurance
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: azure-insurance
