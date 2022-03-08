@@ -1,9 +1,9 @@
 # Deployment on Microsoft Azure Kubernetes Service (AKS) using docker container 
 
-The following commands can be used in Azure Cloud Shell via the browser.  First you need to login to (Azure Portal)[] then click on Cloud Shell using Bash.
-You can see steps by steps instruction (here)[https://medium.com/@phylypo/deploy-a-pycaret-app-to-aks-using-azure-container-registry-fc9e56c378d0].
+The following commands can be used in Azure Cloud Shell via the browser.  First you need to login to [Azure Portal](https://portal.azure.com/) then click on Cloud Shell using Bash.
+You can see steps by steps instruction [here](https://medium.com/@phylypo/deploy-a-pycaret-app-to-aks-using-azure-container-registry-fc9e56c378d0).
 
-``
+```
 # setup variables to use
 RESOURCE_GROUP=PYCARET-KUBE-RG
 CLUSTER_NAME=PYCARET-AKS
@@ -67,4 +67,4 @@ kubectl get service
 # Cleanup -- when done, use the command below to delete the resource group 
 # this will also delete all the resources in this resource group so you don't incure any futher cost
 az group delete --name $RESOURCE_GROUP --yes --no-wait
-``
+```
